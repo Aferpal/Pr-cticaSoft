@@ -5,8 +5,8 @@ import socket
 from src.dbUtilsRedis import initDb, addData, getLastMeasurements, createCol
 
 # aqui elegimos entre importar las funciones para serving o para la copia local
-#from src.modelUtilsServing import loadModel, predict, Model
-from src.modelUtilsLocal import loadModel, predict, Model
+from src.modelUtilsServing import loadModel, predict, Model
+#from src.modelUtilsLocal import loadModel, predict, Model
 
 from src.formatUtils import formatInputForModel, formatInputReadable, formatInputJson
 
@@ -14,11 +14,11 @@ from src.formatUtils import formatInputForModel, formatInputReadable, formatInpu
 # aqui elegimos de nuevo para inicializar el modelo entre el caso base o el de serving
 
 ##serving
-#MODEL_HOST = os.getenv('MODEL_HOST', "localhost")
-#MODEL_BASE = 'http://'+MODEL_HOST+':8501/v1/models/modelo'
+MODEL_HOST = os.getenv('MODEL_HOST', "localhost")
+MODEL_BASE = 'http://'+MODEL_HOST+':8501/v1/models/modelo'
 
 ##base
-MODEL_BASE = './data/modelo.keras'
+#MODEL_BASE = './data/modelo.keras'
 
 # Nos conectamos a Redis
 redis = initDb()
